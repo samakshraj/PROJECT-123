@@ -1,0 +1,11 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+groq>=0.18,<1
+python-dotenv>=1,<2
+pypdf>=5,<7
+langchain-chroma>=0.2,<2
+langchain-core>=0.3,<2
+langchain-huggingface>=0.1,<2
+langchain-text-splitters>=0.3,<2
+sentence-transformers>=3,<6
+firebase-admin>=6.6,<8

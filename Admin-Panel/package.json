@@ -1,0 +1,17 @@
+{
+  "name": "@campus/admin",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "node ../campus-helpdesk-chat/scripts/dev-local.js admin",
+    "dev:full": "node ../campus-helpdesk-chat/scripts/dev-local.js admin",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  }
+}

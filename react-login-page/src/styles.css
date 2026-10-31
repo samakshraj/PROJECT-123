@@ -1,0 +1,79 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Plus Jakarta Sans", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.965 0.02 235);
+  --foreground: oklch(0.26 0.04 270);
+  --card: oklch(0.99 0.008 250);
+  --card-foreground: oklch(0.26 0.04 270);
+  --primary: oklch(0.56 0.19 289);
+  --primary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.945 0.02 240);
+  --muted-foreground: oklch(0.52 0.04 270);
+  --accent: oklch(0.93 0.04 280);
+  --accent-foreground: oklch(0.39 0.13 288);
+  --border: oklch(0.88 0.025 255);
+  --input: oklch(0.88 0.025 255);
+  --ring: oklch(0.66 0.15 289);
+  --gradient-title: linear-gradient(90deg, oklch(0.55 0.2 288), oklch(0.62 0.16 262), oklch(0.66 0.13 230));
+  --gradient-page: linear-gradient(180deg, oklch(0.9 0.045 235) 0%, oklch(0.95 0.025 250) 55%, oklch(0.97 0.015 280) 100%);
+  --gradient-bubble: linear-gradient(135deg, oklch(0.58 0.19 288), oklch(0.64 0.15 250));
+  --shadow-soft: 0 20px 50px -20px oklch(0.55 0.15 260 / 0.28);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: var(--gradient-page);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+.font-display { font-family: var(--font-display); }
+.login-card { border: 1px solid color-mix(in oklch, var(--border) 75%, white); background: color-mix(in oklch, var(--card) 82%, transparent); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
+.login-visual { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(145deg, oklch(0.9 0.045 235), oklch(0.88 0.075 285) 55%, oklch(0.86 0.06 250)); }
+.login-visual::before, .login-visual::after { position: absolute; z-index: -1; content: ""; border-radius: 9999px; filter: blur(2px); }
+.login-visual::before { width: 28rem; height: 28rem; top: -10rem; right: -9rem; background: radial-gradient(circle, oklch(0.98 0.02 280 / .75), oklch(0.72 0.14 292 / .3) 55%, transparent 72%); }
+.login-visual::after { width: 24rem; height: 24rem; bottom: -10rem; left: -8rem; background: radial-gradient(circle, oklch(0.8 0.13 240 / .35), transparent 70%); }
+.login-dots { background-image: radial-gradient(oklch(0.5 0.05 288 / .18) 1px, transparent 1px); background-size: 16px 16px; mask-image: linear-gradient(135deg, black, transparent 80%); }
+.login-orb { background: radial-gradient(circle at 32% 28%, oklch(0.99 0.02 285) 0%, oklch(0.83 0.14 292) 27%, oklch(0.64 0.18 270) 68%, oklch(0.56 0.16 240) 100%); box-shadow: 0 0 70px 8px oklch(0.72 0.14 292 / .3), inset -12px -18px 40px oklch(0.5 0.12 270 / .28), inset 10px 14px 30px oklch(1 0 0 / .62); animation: floaty 5s ease-in-out infinite; }
+.login-title { background: var(--gradient-title); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.login-input { height: 48px; width: 100%; border: 1px solid var(--input); border-radius: 12px; background: color-mix(in oklch, white 68%, transparent); padding: 0 16px; color: var(--foreground); font-size: 14px; outline: none; transition: border-color .18s ease, box-shadow .18s ease, background .18s ease; }
+.login-input::placeholder { color: var(--muted-foreground); }
+.login-input:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 15%, transparent); }
+.login-primary { background: var(--gradient-bubble); box-shadow: 0 6px 16px -6px oklch(0.55 0.18 290 / .5); transition: transform .15s ease, box-shadow .15s ease; }
+.login-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px -8px oklch(0.55 0.18 290 / .6); }
+.login-secondary { border: 1px solid var(--border); background: color-mix(in oklch, white 65%, transparent); transition: background .15s ease, border-color .15s ease; }
+.login-secondary:hover { border-color: var(--primary); background: var(--accent); }
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

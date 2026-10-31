@@ -1,0 +1,8 @@
+- [x] Add shared five-screen left navigation while retaining the sky-themed chat.
+- [x] Add notices, saved complaints/requests, and saved reminders.
+- [x] Add student accounts, saved profiles, and password recovery.
+- [ ] Verify signed-in save flows (blocked: no student account exists yet).
+- [x] Fix account-name compile error and verify all five navigation screens.
+- [ ] Replace scripted chat replies with configurable Python API requests, sources, loading, and retry states.
+- [ ] Add external FastAPI RAG service, PDF ingestion, tests, and setup instructions.
+- [ ] Verify PDF answering with a hosted service (requires Groq credentials, college PDFs, and a backend URL).
